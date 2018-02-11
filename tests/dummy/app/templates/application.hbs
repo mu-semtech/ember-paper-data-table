@@ -1,3 +1,70 @@
-<h2 id="title">Welcome to Ember</h2>
+<div class="layout-row flex layout-align-center">
+  <div class="container">
+    <h1 id="title">Ember Paper Data Table demo</h1>
 
-{{outlet}}
+    <h2>Simple table</h2>
+    <blockquote>Generated table header and body based on given <code>fields</code></blockquote>
+    {{data-table content=model fields="firstName lastName age created modified" sort=sort page=page size=size filter=filter}}
+
+    <h2>Semi-complex table</h2>
+    <blockquote>Customized table header and body</blockquote>
+    {{#data-table content=model sort=sort page=page size=size filter=filter as |t|}}
+      {{#t.content as |c|}}
+        {{#c.header}}
+          {{th-sortable field='firstName' currentSorting=sort label='First name'}}
+          {{th-sortable field='lastName' currentSorting=sort label='Last name'}}
+          <th>Age</th>
+          {{th-sortable field='created' currentSorting=sort label='Created'}}
+          <th>Modified</th>
+        {{/c.header}}
+        {{#c.body as |row|}}
+          <td>{{row.firstName}}</td>
+          <td>{{row.lastName}}</td>
+          <td>{{row.age}}</td>
+          <td>{{row.created}}</td>
+          <td>{{row.modified}}</td>
+        {{/c.body}}
+      {{/t.content}}
+    {{/data-table}}
+
+    <h2>Complex table</h2>
+    <blockquote>Customized table including an action menu on top</blockquote>
+    {{#data-table content=model sort=sort page=page size=size filter=filter autoSearch=false onClickRow=(action "clickRow") as |t|}}
+      {{#t.menu as |menu|}}
+        {{#menu.general}}
+          {{#paper-button onClick=(action "menuTest") accent=true noInk=true}}Export{{/paper-button}}
+          {{#paper-button onClick=null accent=true noInk=true}}Print{{/paper-button}}
+        {{/menu.general}}
+        {{#menu.selected as |selection table|}}
+          {{#paper-button onClick=(action "selectionTest" selection table) accent=true noInk=true}}Export{{/paper-button}}
+        {{/menu.selected}}
+      {{/t.menu}}
+      {{#t.content as |c|}}
+        {{#c.header}}
+          {{th-sortable field='firstName' currentSorting=sort label='First name'}}
+          {{th-sortable field='lastName' currentSorting=sort label='Last name'}}
+          <th>Age</th>
+          {{th-sortable field='created' currentSorting=sort label='Created'}}
+          <th>Modified</th>
+          <th><!-- Details icon --></th>
+        {{/c.header}}
+        {{#c.body as |row|}}
+          <td>{{row.firstName}}</td>
+          <td>{{row.lastName}}</td>
+          <td>{{row.age}}</td>
+          <td>{{row.created}}</td>
+          <td>{{row.modified}}</td>
+          <td>{{#paper-button onClick=(action 'test' row) iconButton=true bubbles=false}}{{paper-icon "info"}}{{/paper-button}}</td>
+        {{/c.body}}
+      {{/t.content}}
+    {{/data-table}}
+
+    <h2>Internal variables</h2>
+    <ul>
+      <li>Sort: {{sort}}</li>
+      <li>Page: {{page}}</li>
+      <li>Size: {{size}}</li>
+      <li>Filter: {{filter}}</li>
+    </ul>
+  </div>
+</div>
