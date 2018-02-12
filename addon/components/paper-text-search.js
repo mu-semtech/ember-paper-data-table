@@ -1,7 +1,7 @@
 import { scheduleOnce } from '@ember/runloop';
 import { oneWay } from '@ember/object/computed';
 import Component from '@ember/component';
-import layout from '../templates/components/text-search';
+import layout from '../templates/components/paper-text-search';
 
 export default Component.extend({
   layout,

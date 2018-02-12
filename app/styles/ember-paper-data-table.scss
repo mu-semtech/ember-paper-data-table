@@ -15,8 +15,13 @@ table.data-table {
         }
       }
     }
+
     .sortable {
       &:not(.sorted):hover {
+        span::before {
+          content: unset;
+        }
+
         md-icon::before {
           color: rgb(62%,62%,62%);
           content: 'arrow_upward';
