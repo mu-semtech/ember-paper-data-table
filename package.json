@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "description": "Extension of ember-data-table with ember-paper styling",
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "mu-semtech"
   ],
   "license": "MIT",
   "author": "",
