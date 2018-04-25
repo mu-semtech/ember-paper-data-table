@@ -1,8 +1,6 @@
 <div class="layout-row flex">
   {{#if auto}}
-    {{#debounced-value val=filter wait=wait immediate=false sync=true as |value|}}
-      {{paper-input placeholder=placeholder type="text" value=value onChange=(action (mut value)) icon="search" class=(if isExpanded "expanded")}}
-    {{/debounced-value}}
+    {{paper-input placeholder=placeholder type="text" value=value onChange=(action (mut value)) icon="search" class=(if isExpanded "expanded")}}
   {{else}}
     {{paper-input placeholder=placeholder type="text" value=filter onChange=(action (mut filter)) icon="search" class=(if isExpanded "expanded")}}
   {{/if}}

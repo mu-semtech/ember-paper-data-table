@@ -1,16 +1,10 @@
 import { scheduleOnce } from '@ember/runloop';
 import { oneWay } from '@ember/object/computed';
-import Component from '@ember/component';
+import TextSearchComponent from 'ember-data-table/components/text-search';
 import layout from '../templates/components/paper-text-search';
 
-export default Component.extend({
+export default TextSearchComponent.extend({
   layout,
-  filter: '',
-  classNames: ["data-table-search"],
-  value: oneWay('filter'),
-  wait: 2000,
-  auto: true,
-  placeholder: 'Search',
   isExpanded: oneWay('filter', function() {
     return this.get('filter').length > 0;
   }),
