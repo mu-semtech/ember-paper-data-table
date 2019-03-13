@@ -11,10 +11,10 @@
     {{#data-table content=model sort=sort page=page size=size filter=filter as |t|}}
       {{#t.content as |c|}}
         {{#c.header}}
-          {{th-sortable field='firstName' currentSorting=sort label='First name'}}
-          {{th-sortable field='lastName' currentSorting=sort label='Last name'}}
+          {{th-sortable field="firstName" currentSorting=sort label="First name"}}
+          {{th-sortable field="lastName" currentSorting=sort label="Last name"}}
           <th>Age</th>
-          {{th-sortable field='created' currentSorting=sort label='Created'}}
+          {{th-sortable field="created" currentSorting=sort label="Created"}}
           <th>Modified</th>
         {{/c.header}}
         {{#c.body as |row|}}
@@ -41,12 +41,12 @@
       {{/t.menu}}
       {{#t.content as |c|}}
         {{#c.header}}
-          {{th-sortable field='firstName' currentSorting=sort label='First name'}}
-          {{th-sortable field='lastName' currentSorting=sort label='Last name'}}
+          {{th-sortable field="firstName" currentSorting=sort label="First name"}}
+          {{th-sortable field="lastName" currentSorting=sort label="Last name"}}
           <th>Age</th>
-          {{th-sortable field='created' currentSorting=sort label='Created'}}
+          {{th-sortable field="created" currentSorting=sort label="Created"}}
           <th>Modified</th>
-          <th><!-- Details icon --></th>
+          <th>{{!-- Details icon --}}</th>
         {{/c.header}}
         {{#c.body as |row|}}
           <td>{{row.firstName}}</td>
@@ -54,7 +54,7 @@
           <td>{{row.age}}</td>
           <td>{{row.created}}</td>
           <td>{{row.modified}}</td>
-          <td>{{#paper-button onClick=(action 'test' row) iconButton=true bubbles=false}}{{paper-icon "info"}}{{/paper-button}}</td>
+          <td>{{#paper-button onClick=(action "test" row) iconButton=true bubbles=false}}{{paper-icon "info"}}{{/paper-button}}</td>
         {{/c.body}}
       {{/t.content}}
     {{/data-table}}
